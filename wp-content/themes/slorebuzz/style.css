@@ -1,0 +1,108 @@
+/*
+Theme Name: SLO Re Buzz v0
+Theme URI: http://sanluisrealestatebuzz.com/
+Description: The 2011 theme for the San Luis Real Estate Buzz blog. Clean, stylish, and appropriate.
+Author: Eric Willis
+Version: 0.0
+License URI: license.txt
+*/
+
+/* Global */
+.screen-reader-text {display:none;}
+h1, h2, h3, h4, p {margin:0;padding:0;margin-bottom:1.2em;}
+h1 {font-size:18px;font-family:Georgia;}
+h2 {font-size:16px;font-family:Georgia;}
+h3 {font-size:14px;font-family:Georgia;}
+.input-text {background:#e6e6e6;border:1px solid #bdb7a0;padding:4px 2px;font-family:Georgia;}
+
+a {color:#043d55;}
+
+html {padding:0;margin:0;width:100%;background:#eaeaea;height:100%;}
+body {padding:0;margin:0;width:100%;background:url(/wp-content/themes/slorebuzz/images/header-bg.png) repeat-x top center;font-family:Arial;font-size:14px;line-height:18px;height:100%;}
+
+#outer-wrap {min-height: 100%;position:relative;}
+#wrapper {width:980px;margin:auto;padding-bottom:78px;}
+
+#header {overflow:hidden;}
+#branding {float:left;}
+
+#site-title {width:253px; height:98px; background:url(/wp-content/themes/slorebuzz/images/logo_img.jpg) no-repeat top center;margin:0;}
+#site-title a {display:block;width:253px; height:98px; text-indent:-9999px;}
+
+#access {float:right;}
+#access #main-nav-div {background:url(/wp-content/themes/slorebuzz/images/main_header_left.jpg) no-repeat top left; overflow:hidden;padding-left:20px;}
+#access #main-nav-div #main-header-nav {margin:0;padding:0;background:url(/wp-content/themes/slorebuzz/images/main_header_right.jpg) no-repeat top right; overflow:hidden;padding-right:20px;}
+#access #main-nav-div #main-header-nav li {float:left;list-style:none;margin:0;padding:0;height:47px;}
+#access #main-nav-div #main-header-nav li a {display:block;height:47px;text-indent:-9999px;}
+
+#access #main-nav-div #main-header-nav li#about-link {width:106px;background:url(/wp-content/themes/slorebuzz/images/main-about-on.jpg);}
+#access #main-nav-div #main-header-nav li#about-link a {width:106px;background:url(/wp-content/themes/slorebuzz/images/main-about-off.jpg);}
+#access #main-nav-div #main-header-nav li#about-link a:hover {background:url(/wp-content/themes/slorebuzz/images/main-about-on.jpg);}
+
+#access #main-nav-div #main-header-nav li#team-link {width:153px;background:url(/wp-content/themes/slorebuzz/images/main-team-on.jpg);}
+#access #main-nav-div #main-header-nav li#team-link a {width:153px;background:url(/wp-content/themes/slorebuzz/images/main-team-off.jpg);}
+#access #main-nav-div #main-header-nav li#team-link a:hover {background:url(/wp-content/themes/slorebuzz/images/main-team-on.jpg);}
+
+#access #main-nav-div #main-header-nav li#contact-link {width:117px;background:url(/wp-content/themes/slorebuzz/images/main-contact-on.jpg);}
+#access #main-nav-div #main-header-nav li#contact-link a {width:117px;background:url(/wp-content/themes/slorebuzz/images/main-contact-off.jpg);}
+#access #main-nav-div #main-header-nav li#contact-link a:hover {background:url(/wp-content/themes/slorebuzz/images/main-contact-on.jpg);}
+
+#access #subnav-div {background:url(/wp-content/themes/slorebuzz/images/subnav_title.jpg) no-repeat top left; overflow:hidden;padding-left:148px;margin-top:21px;}
+#access #subnav-div #sub-header-nav {margin:0;padding:0;height:30px;background:url(/wp-content/themes/slorebuzz/images/subnav.jpg) no-repeat top left;}
+#access #subnav-div #sub-header-nav li {float:left;margin:0;padding:0;height:30px;list-style:none;}
+#access #subnav-div #sub-header-nav li a {display:block;margin:0;padding:0;height:30px;text-indent:-9999px;}
+
+#access #subnav-div #sub-header-nav li#news-link {width:60px;}
+#access #subnav-div #sub-header-nav li#news-link a {width:60px;}
+#access #subnav-div #sub-header-nav li#news-link a:hover {background:url(/wp-content/themes/slorebuzz/images/subnav.jpg) no-repeat 0px -30px;}
+
+#access #subnav-div #sub-header-nav li#qa-link {width:54px;}
+#access #subnav-div #sub-header-nav li#qa-link a {width:54px;}
+#access #subnav-div #sub-header-nav li#qa-link a:hover {background:url(/wp-content/themes/slorebuzz/images/subnav.jpg) no-repeat -60px -30px;}
+
+#access #subnav-div #sub-header-nav li#local-link {width:147px;}
+#access #subnav-div #sub-header-nav li#local-link a {width:147px;}
+#access #subnav-div #sub-header-nav li#local-link a:hover {background:url(/wp-content/themes/slorebuzz/images/subnav.jpg) no-repeat -114px -30px;}
+
+#main {overflow:hidden;}
+#container {width:670px;float:left;;overflow:hidden;}
+	#container #content {background:url(/wp-content/themes/slorebuzz/images/content_top.png) no-repeat top center;padding-top:14px;}
+	#container #content #content-inner {background:url(/wp-content/themes/slorebuzz/images/content_bg.png) repeat-y top center;padding:0px 18px 0px;overflow:hidden;}
+	#container #content #content-footer {background:url(/wp-content/themes/slorebuzz/images/content_bottom.png) no-repeat top center;height:19px;}
+	
+	#container #content .entry-title {font-size:20px;margin-bottom:10px;}
+	
+/* -- POST ITEMS -- */
+	#container #content .post {margin-bottom:20px;}
+		#container .home-author-box {float:right;width:90px;border:3px solid #A7A7A7;font-size:12px;background:#eaeaea;}
+		#container .home-author-box p {margin:0;padding:0px 3px 1px;text-align:center;}
+		#container .home-author-box a {text-decoration:none;}
+		#container #content .post .entry-utility {border-top:1px solid #777;background:#eaeaea;padding:5px 10px;font-size:10px;}
+			#container #content .post .entry-utility p {margin-bottom:4px;}
+	
+	#container #content .post .post-entry-title {font-size:28px;margin-top:5px;margin-bottom:5px;}
+	#container #content .post .post-entry-meta {font-size:11px;margin-bottom:18px;}
+	
+	#container #content #author-box {background:#eaeaea;border-top:1px solid #777;padding:5px 10px;overflow:hidden;}
+		#container #content .post-entry-content {margin-bottom:30px;}
+		.post-author-avatar {margin-left:11px;}
+		#container #content #author-box h4 {font-size:18px;text-decoration:none;margin-bottom:5px;}
+		#container #content .contact-box {margin-bottom:18px;}
+		#container #content #author-box .post-author-avatar {float:right;}
+	
+#sidebar {width:300px;float:right;overflow:hidden;}
+	#sidebar #google-widget	{background: #424242;border: 1px solid #000; border-bottom:3px solid #000; height: 26px;padding: 10px 20px;position:relative;margin-bottom:5px;}
+	#sidebar #google-widget #recc-text { color: #D7D7D7;font-size: 12px; font-weight: bold; left: 100px; line-height: 28px; margin-right: 20px; position: absolute;}
+	
+	#sidebar #search-box {background:url(/wp-content/themes/slorebuzz/images/sb_top.png) no-repeat top center;padding-top:12px;margin-bottom:7px;}
+	#sidebar #search-box label.screen-reader-text {float:left;width:80px;height:27px;display:block;background:url(/wp-content/themes/slorebuzz/images/search_label.jpg) no-repeat top center;text-indent:-9999px;}
+	#sidebar #search-box form {background:url(/wp-content/themes/slorebuzz/images/sb_bg.png) repeat-y top center;padding:10px 4px; }
+	#sidebar .sb-footer {background:url(/wp-content/themes/slorebuzz/images/sb_bottom.png) no-repeat top center;height:12px;}
+	
+	#sidebar #sidebar-main {background:url(/wp-content/themes/slorebuzz/images/sb_top.png) no-repeat top center;padding-top:12px;margin-bottom:7px;}
+	#sidebar #sidebar-main .sibebar-content {background:url(/wp-content/themes/slorebuzz/images/sb_bg.png) repeat-y top center;padding:10px 4px;}
+
+#footer {position:absolute;bottom:0;background:#002738;color:#FFF;width:100%;}
+	#footer a {color:#FFF;}
+	#footer #footer-wrap {width:980px;margin:auto;padding:20px 5px;}
+#leader-board {margin:11px 0 4px;}

@@ -1,0 +1,41 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Author Slug Wordpress plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-13 11:50+0100\n"
+"PO-Revision-Date: 2010-11-13 11:53+0100\n"
+"Last-Translator: Microkid <microkid.net@gmail.com>\n"
+"Language-Team: Microkid <microkid.net@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__\n"
+"X-Poedit-Basepath: /Users/superinteractive/Sites/n2n.dev/wp-content/plugins/author-slug/\n"
+"X-Poedit-Language: nl_NL\n"
+"X-Poedit-Country: NETHERLANDS\n"
+"X-Poedit-SearchPath-0: /Users/superinteractive/Sites/n2n.dev/wp-content/plugins/author-slug\n"
+
+#: /Users/superinteractive/Sites/n2n.dev/wp-content/plugins/author-slug/author-slug.php:34
+msgid "Author slug"
+msgstr "Auteurs slug"
+
+#: /Users/superinteractive/Sites/n2n.dev/wp-content/plugins/author-slug/author-slug.php:43
+msgid "Settings saved"
+msgstr "Wijzigingen opgeslagen"
+
+#: /Users/superinteractive/Sites/n2n.dev/wp-content/plugins/author-slug/author-slug.php:52
+msgid "Current author page permalink structure:"
+msgstr "Huidige auteurspagina permalink structuur"
+
+#: /Users/superinteractive/Sites/n2n.dev/wp-content/plugins/author-slug/author-slug.php:52
+msgid "authorname"
+msgstr "naamauteur"
+
+#: /Users/superinteractive/Sites/n2n.dev/wp-content/plugins/author-slug/author-slug.php:53
+msgid "Change author slug:"
+msgstr "Pas auteurs slug aan:"
+
+#: /Users/superinteractive/Sites/n2n.dev/wp-content/plugins/author-slug/author-slug.php:55
+msgid "Save"
+msgstr "Opslaan"
+
