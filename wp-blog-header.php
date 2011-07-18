@@ -8,8 +8,8 @@
 if ( !isset($wp_did_header) ) {
 
 	$wp_did_header = true;
-
-	require_once( dirname(__FILE__) . '/wp-load.php' );
+	
+	require_once( getcwd() . '/wp-load.php' );
 
 	wp();
 
