@@ -1,6 +1,6 @@
 <?php
 /** Enable W3 Total Cache */
-define('WP_CACHE', true); // Added by W3 Total Cache
+ // Added by W3 Total Cache
 
 /**
  * The base configurations of the WordPress.
@@ -19,7 +19,7 @@ define('WP_CACHE', true); // Added by W3 Total Cache
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'slo_re_buzz');
+define('DB_NAME', 're_buzz_sites');
 
 /** MySQL database username */
 define('DB_USER', 'root');
@@ -82,7 +82,15 @@ define('WPLANG', '');
  * in their development environments.
  */
 define('WP_DEBUG', false);
-
+define('WP_ALLOW_MULTISITE', true);
+define( 'MULTISITE', true );
+define( 'SUBDOMAIN_INSTALL', true );
+$base = '/';
+define( 'DOMAIN_CURRENT_SITE', 'rebuzzsites.com' );
+define( 'PATH_CURRENT_SITE', '/' );
+define( 'SITE_ID_CURRENT_SITE', 1 );
+define( 'BLOG_ID_CURRENT_SITE', 1 );
+define( 'SUNRISE', 'on' );
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
