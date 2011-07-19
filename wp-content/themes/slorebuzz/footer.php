@@ -46,5 +46,6 @@
 	wp_footer();
 ?>
 </div> <!-- #outer-wrap -->
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 </body>
 </html>

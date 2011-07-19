@@ -10,6 +10,7 @@ License URI: license.txt
 /* Global */
 .screen-reader-text {display:none;}
 h1, h2, h3, h4, p {margin:0;padding:0;margin-bottom:1.2em;}
+p {line-height:1.5em;}
 h1 {font-size:18px;font-family:Georgia;}
 h2 {font-size:16px;font-family:Georgia;}
 h3 {font-size:14px;font-family:Georgia;}
@@ -20,13 +21,15 @@ a {color:#043d55;}
 html {padding:0;margin:0;width:100%;background:#eaeaea;height:100%;}
 body {padding:0;margin:0;width:100%;background:url(/wp-content/themes/slorebuzz/images/header-bg.png) repeat-x top center;font-family:Arial;font-size:14px;line-height:18px;height:100%;}
 
+.twitter-follow-button {width:134px !important;}
+
 #outer-wrap {min-height: 100%;position:relative;}
 #wrapper {width:980px;margin:auto;padding-bottom:78px;}
 
 #header {overflow:hidden;}
 #branding {float:left;}
 
-#site-title {width:253px; height:98px; background:url(/wp-content/themes/slorebuzz/images/logo_img.jpg) no-repeat top center;margin:0;}
+#site-title {width:253px; height:98px; background:url(/images-main/logo_img.jpg) no-repeat top center;margin:0;}
 #site-title a {display:block;width:253px; height:98px; text-indent:-9999px;}
 
 #access {float:right;}
@@ -85,7 +88,7 @@ body {padding:0;margin:0;width:100%;background:url(/wp-content/themes/slorebuzz/
 	
 	#container #content #author-box {background:#eaeaea;border-top:1px solid #777;padding:5px 10px;overflow:hidden;}
 		#container #content .post-entry-content {margin-bottom:30px;}
-		.post-author-avatar {margin-left:11px;}
+		.post-author-avatar {margin-left:11px;margin-top:4px;}
 		#container #content #author-box h4 {font-size:18px;text-decoration:none;margin-bottom:5px;}
 		#container #content .contact-box {margin-bottom:18px;}
 		#container #content #author-box .post-author-avatar {float:right;}
@@ -106,3 +109,4 @@ body {padding:0;margin:0;width:100%;background:url(/wp-content/themes/slorebuzz/
 	#footer a {color:#FFF;}
 	#footer #footer-wrap {width:980px;margin:auto;padding:20px 5px;}
 #leader-board {margin:11px 0 4px;}
+	#leader-board .leader-add {margin-left:8px;}
