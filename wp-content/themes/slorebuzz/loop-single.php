@@ -56,6 +56,25 @@
 				<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
 			
+			<div style="margin-top:14px;overflow:hidden;">
+				<h4>Did You Like this Article? Share it!</h4>
+				<div id="facebook" style="float:left;margin-right:12px;width:47px;overflow:hidden;">
+					<iframe src="http://www.facebook.com/plugins/like.php?app_id=249908208354495&amp;href&amp;send=false&amp;layout=box_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=tahoma&amp;height=90" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:90px;" allowTransparency="true"></iframe>
+				</div>
+				<div id="twitter-share" style="float:left;margin-right:12px;width:57px;overflow:hidden;">
+					<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="slorebuzz">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+				</div>
+				<div id="google-share" style="float:left;margin-right:12px;width:50px;overflow:hidden;">
+				<g:plusone size="tall"></g:plusone>
+				</div>
+				<div id="linkedin-share" style="float:left;margin-right:12px;width:61px;overflow:hidden;">
+				<script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share" data-counter="top"></script>
+				</div>
+				<div id="stumbleupon-share" style="float:left;margin-right:12px;width:61px;overflow:hidden;">
+				<script src="http://www.stumbleupon.com/hostedbadge.php?s=5"></script>
+				</div>
+			</div>
+			
 			<div id="author-box">
 				<div class="post-author-avatar" style="width:110px;"><?=get_avatar(get_the_author_meta('ID'), '110');?><img src="/wp-content/themes/slorebuzz/images/pb-logo.jpg" /></div>
 				<div style="margin-right:124px;">
@@ -67,10 +86,11 @@
 					<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/email.png" style="vertical-align:middle;"/> Email</a>
 				</div>
 				<p>Author short bio information would go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida orci ac dolor venenatis tempor. Nam porttitor hendrerit metus, sed vehicula ligula ornare quis. Proin sit amet egestas libero. Nunc eu felis leo. </p>
-				<p><a href="#">Learn More &raquo;</a></p>
+				<p><a href="<?=get_author_posts_url(get_the_author_meta('ID'));?>">Learn More &raquo;</a></p>
 				</div>
 			</div>
 			
+			<?php comments_template( '', true ); ?>
 </div>
 <?php endwhile; // End the loop. Whew. ?>
 
