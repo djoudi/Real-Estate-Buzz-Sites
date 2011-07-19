@@ -2,3 +2,8 @@ wp-config.php
 rb-config.php
 images-main
 wp-content/uploads
+wp-content/w3tc/
+wp-content/w3-total-cache-config*
+wp-content/object-cache.php
+wp-content/db.php
+wp-content/advanced-cache.php
