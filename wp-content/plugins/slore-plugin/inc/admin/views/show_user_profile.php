@@ -4,6 +4,11 @@
 
 <table class="form-table">
 	<tbody>
+		
+		<tr>
+			<th>Company</th>
+			<td><input type="text" name="expanded_profile[company]" value="<?=(isset($expanded_profile['company']) && $expanded_profile['company'] != '')?$expanded_profile['company']:''?>" class="regular-text"/></td>
+		</tr>
 		<tr>
 			<th>Contact Email Address</th>
 			<td><input type="text" name="expanded_profile[contact-email-address]" value="<?=(isset($expanded_profile['contact-email-address']) && $expanded_profile['contact-email-address'] != '')?$expanded_profile['contact-email-address']:''?>" class="regular-text"/></td>
@@ -28,6 +33,13 @@
 		<tr>
 			<th>Fax</th>
 			<td><input type="text" name="expanded_profile[fax]" value="<?=(isset($expanded_profile['fax']) && $expanded_profile['fax'] != '')?$expanded_profile['fax']:''?>" class="regular-text"/></td>
+		</tr>
+		
+		<tr>
+			<th>Address</th>
+			<td>
+				<textarea name="expanded_profile[address]" cols="20" rows="3"><?=(isset($expanded_profile['address']) && $expanded_profile['address'] != '')?$expanded_profile['address']:''?></textarea>
+			</td>
 		</tr>
 	</tbody>
 </table>
