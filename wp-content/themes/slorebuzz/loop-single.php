@@ -76,10 +76,10 @@
 			</div>
 			
 			<div id="author-box">
-				<div class="post-author-avatar" style="width:110px;"><?=get_avatar(get_the_author_meta('ID'), '110');?><img src="/wp-content/themes/slorebuzz/images/pb-logo.jpg" /></div>
+				<? /* <div class="post-author-avatar" style="width:110px;"><?=get_avatar(get_the_author_meta('ID'), '110');?><img src="/wp-content/themes/slorebuzz/images/pb-logo.jpg" /></div>*/?>
 				<div style="margin-right:124px;">
 				<h4><span style="font-size:16px;color:#797979;font-weight:normal;">This post was written by</span> <?php the_author_posts_link(); ?></h4>
-				<div class="contact-box" style="margin-top:3px;border-top:1px solid #dadada;padding-top:7px;">
+				<? /*<div class="contact-box" style="margin-top:3px;border-top:1px solid #dadada;padding-top:7px;">
 					<span class="contact-label" style="font-weight:bold;margin-right:18px;">Contact <?=the_author_meta('first-name');?>:</span>
 					<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/twitter.png" style="vertical-align:middle;"/> Twitter</a>
 					<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/facebook.png" style="vertical-align:middle;"/> Facebook</a>
@@ -87,7 +87,7 @@
 				</div>
 				<p>Author short bio information would go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida orci ac dolor venenatis tempor. Nam porttitor hendrerit metus, sed vehicula ligula ornare quis. Proin sit amet egestas libero. Nunc eu felis leo. </p>
 				<p><a href="<?=get_author_posts_url(get_the_author_meta('ID'));?>">Learn More &raquo;</a></p>
-				</div>
+				</div> */ ?>
 			</div>
 			
 			<?php comments_template( '', true ); ?>
