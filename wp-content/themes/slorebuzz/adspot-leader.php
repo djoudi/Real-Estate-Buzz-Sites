@@ -12,7 +12,7 @@
 			</div>
 			
 			<div style="width:234px;height:90px;background:#a7a7a7;float:left;">
-				<a href="#" alt="Meet Our Team" rel="team">
+				<a href="/the-team" alt="Meet Our Team" rel="team">
 					<img src="/images-main/team-button.jpg"/>
 				</a>
 			</div>
