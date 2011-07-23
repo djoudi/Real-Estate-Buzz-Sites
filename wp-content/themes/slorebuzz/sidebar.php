@@ -1,8 +1,4 @@
 <div id="sidebar">
-	<div id="google-widget">
-		<div id="recc-text">Recomend Us on Google</div>
-		<g:plusone href="<?=site_url();?>"></g:plusone>
-	</div>
 	
 	<div id="search-box">
 		<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
@@ -12,6 +8,11 @@
 			</div>
 		</form>
 		<div class="sb-footer"></div>
+	</div>
+	
+	<div id="google-widget">
+		<div id="recc-text">Recomend Us on Google</div>
+		<g:plusone href="<?=site_url();?>"></g:plusone>
 	</div>
 	
 	<div class="add-unit">
