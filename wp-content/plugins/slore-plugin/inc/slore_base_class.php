@@ -20,6 +20,11 @@ class slore_base_class {
 			{
 				$this->loader->_load($plug,'admin');
 			}
+		} else {
+			foreach($slore_base_config['ui_classes'] as $plug)
+			{
+				$this->loader->_load($plug,'ui');
+			}
 		}
 	}
 	

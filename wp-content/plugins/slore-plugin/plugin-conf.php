@@ -10,6 +10,9 @@ global $slore_base_config;
 $slore_base_config = array(
 	'admin_classes' => array(
 		'extend_user_profile'
+	),
+	'ui_classes' => array(
+		'contact_form'
 	)
 );
 

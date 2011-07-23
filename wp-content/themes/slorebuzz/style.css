@@ -21,6 +21,9 @@ a {color:#043d55;}
 html {padding:0;margin:0;width:100%;background:#eaeaea;height:100%;}
 body {padding:0;margin:0;width:100%;background:url(/wp-content/themes/slorebuzz/images/header-bg.png) repeat-x top center;font-family:Arial;font-size:14px;height:100%;}
 
+form p {margin-bottom:7px;}
+label {float:left;width:200px;font-weight:bold;}
+
 .twitter-follow-button {width:134px !important;}
 
 #outer-wrap {min-height: 100%;position:relative;}

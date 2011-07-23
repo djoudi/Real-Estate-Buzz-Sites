@@ -30,16 +30,11 @@
 	<div id="sidebar-main">
 		<div class="sibebar-content">
 				<h3 class="main-heading" style="font-size:20px;font-family:Georgia;color:#043d55;margin-left:11px;margin-bottom:7px;margin-right:12px;border-bottom:1px solid #bdb7a0;line-height:27px;">
-					Popular Stories
+					Thank You for Visiting!
 				</h3>
 				
 				<div class="" style="margin-left:12px;">
-					<ul style="margin:0;padding:0;list-style:none;">
-						<li style="margin-bottom:5px;"><a href="#">Popular Story Title</a></li>
-						<li style="margin-bottom:5px;"><a href="#">Popular Story Title</a></li>
-						<li style="margin-bottom:5px;"><a href="#">Popular Story Title</a></li>
-						<li style="margin-bottom:5px;"><a href="#">Popular Story Title</a></li>
-					</ul>
+					<p>We are really glad that you are here, and we want to make your visit as clean and smooth as possible. If you have any comments or suggestions please feel free to <a href="/contact">contact us</a> and let us know.<br/><strong>Come Back Soon!</strong></p>
 				</div>
 		
 		</div>
