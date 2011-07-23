@@ -75,13 +75,13 @@
 					</ul>
 				</div>
 				
-				<div id="subnav-div">
+				<? /*<div id="subnav-div">
 					<ul id="sub-header-nav">
 						<li id="news-link"><a href="/news">News</a></li>
 						<li id="qa-link"><a href="/questions_and_answers">Q &amp; A</a></li>
 						<li id="local-link"><a href="/local_resources">Local Resources</a></li>
 					</ul>
-				</div>
+				</div> */?>
 			</div><!-- #access -->
 		</div><!-- #masthead -->
 	</div><!-- #header -->
