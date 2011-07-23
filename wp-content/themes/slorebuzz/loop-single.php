@@ -86,8 +86,8 @@
 					<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/email.png" style="vertical-align:middle;"/> Email</a>
 				</div>
 				<p>Author short bio information would go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida orci ac dolor venenatis tempor. Nam porttitor hendrerit metus, sed vehicula ligula ornare quis. Proin sit amet egestas libero. Nunc eu felis leo. </p>
-				<p><a href="<?=get_author_posts_url(get_the_author_meta('ID'));?>">Learn More &raquo;</a></p>
-				</div> */ ?>
+				<p><a href="<?=get_author_posts_url(get_the_author_meta('ID'));?>">Learn More &raquo;</a></p>*/ ?>
+				</div> 
 			</div>
 			
 			<?php comments_template( '', true ); ?>
