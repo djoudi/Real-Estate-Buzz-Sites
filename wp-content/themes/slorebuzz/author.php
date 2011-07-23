@@ -28,7 +28,7 @@ $expandedProfile = get_user_meta($curauth->ID, '_slore_expanded_profile', true);
 				<div class="profile-description">
 					<?=wpautop($curauth->description); ?>
 				</div>
-				<pre><? print_r($curauth); ?></pre>
+				
 				<div class="main-heading-wrapper" style="display:block;height:67px;background:url(/wp-content/themes/slorebuzz/images/banner_left.png) no-repeat top left;margin-left:-18px;">
 				<h2 class="main-heading" style="margin-bottom:0px;display:block;height:67px;background:url(/wp-content/themes/slorebuzz/images/banner_right.jpg) no-repeat top right;padding-right:16px;float:left;font-size:24px;line-height:54px;font-family:Georgia;color:#043d55;">
 					<span style="float:left;height:67px;background:url(/wp-content/themes/slorebuzz/images/banner_bg.png) repeat-x top left;margin-left:12px;"><?=$curauth->display_name; ?>&rsquo;s Articles</span>
