@@ -15,7 +15,7 @@ $expandedProfile = get_user_meta($curauth->ID, '_slore_expanded_profile', true);
 				<div class="profile-image"></div>
 				
 				<div class="profile-contact">
-					<p style="margin-bottom:7px;">
+					<? /*<p style="margin-bottom:7px;">
 						<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/twitter.png" style="vertical-align:middle;"/> Twitter</a>
 						<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/facebook.png" style="vertical-align:middle;"/> Facebook</a>
 						<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/email.png" style="vertical-align:middle;"/> Email</a>
@@ -23,7 +23,7 @@ $expandedProfile = get_user_meta($curauth->ID, '_slore_expanded_profile', true);
 					<? if(isset($expandedProfile['phone']) && $expandedProfile['phone'] != ''): ?><p><label>Phone Number:</label> <strong class="proflie-phone"><?=$expandedProfile['phone']; ?></strong></p><?endif;?>
 					<? if(isset($expandedProfile['cell']) && $expandedProfile['cell'] != ''): ?><p><label>Cell Phone Number:</label> <strong><?=$expandedProfile['cell']; ?></strong></p><?endif;?>
 					<? if(isset($expandedProfile['fax']) && $expandedProfile['fax'] != ''): ?><p><label>Fax Number:</label> <strong><?=$expandedProfile['fax']; ?></strong></p><?endif;?>
-				</div>
+				*/?></div>
 				
 				<div class="profile-description">
 					<?=wpautop($curauth->description); ?>
