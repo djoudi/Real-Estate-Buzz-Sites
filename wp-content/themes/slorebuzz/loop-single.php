@@ -42,7 +42,7 @@
 			
 			<div class="top-avatar">
 				<?=get_avatar(get_the_author_meta('ID'), '120');?>
-				<p><?php the_author_posts_link(); ?></p>
+				<p><a href="#author_info"><?php the_author_meta('display_name'); ?></a></p>
 			</div>
 			
 			<div class="post-entry-meta single-meta">
@@ -73,7 +73,10 @@
 				</div>
 			</div>
 			
+			
 			<div id="author-box">
+				<a name="author_info"></a>
+				
 				<?
 					// Set up Info...
 					$expanded_profile = get_user_meta(get_the_author_meta('ID'),'_slore_expanded_profile', true);
@@ -90,7 +93,7 @@
 						<? if($expanded_profile['contact-email-address'] != ''): ?><a href="mailto:<?=$expanded_profile['contact-email-address']; ?>" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/email.png" style="vertical-align:top;margin-top:4px;"/> Email</a><?endif;?>
 					</p>
 				</div>
-				<p>Author short bio information would go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida orci ac dolor venenatis tempor. Nam porttitor hendrerit metus, sed vehicula ligula ornare quis. Proin sit amet egestas libero. Nunc eu felis leo. </p>
+				<? /*<p>Author short bio information would go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida orci ac dolor venenatis tempor. Nam porttitor hendrerit metus, sed vehicula ligula ornare quis. Proin sit amet egestas libero. Nunc eu felis leo. </p> */?>
 				<p><a href="<?=get_author_posts_url(get_the_author_meta('ID'));?>">Learn More &raquo;</a></p>
 				
 			</div>
