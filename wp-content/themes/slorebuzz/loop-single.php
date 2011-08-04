@@ -80,14 +80,14 @@
 					//print_r($expanded_profile);
 					
 				?>
-				<h4><span style="font-size:16px;color:#797979;font-weight:normal;">This post was written by</span> <?php the_author_posts_link(); ?> <span style="font-size:16px;color:#474747;font-weight:normal;"><?=$expanded_profile['company'];?></span></h4>
+				<h4><?php the_author_posts_link(); ?> <span style="font-size:16px;color:#474747;font-weight:bold;margin-left:12px;"><?=$expanded_profile['company'];?></span></h4>
 				<div class="contact-box" style="margin-top:3px;border-top:1px solid #dadada;padding-top:7px;">
 					<p>
-						<span class="contact-label" style="font-weight:bold;margin-right:18px;">Contact <?=the_author_meta('first-name');?>:</span>
+						<span class="contact-label" style="font-weight:bold;margin-right:18px;">Contact:</span>
 						<span class="post-phone" style="font-weight:bold;color:#043D55;font-size:18px;margin-right:18px;"><?=$expanded_profile['phone'];?></span>
-						<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/twitter.png" style="vertical-align:middle;"/> Twitter</a>
-						<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/facebook.png" style="vertical-align:middle;"/> Facebook</a>
-						<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/email.png" style="vertical-align:middle;"/> Email</a>
+						<? /*<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/twitter.png" style="vertical-align:middle;"/> Twitter</a>
+						<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/facebook.png" style="vertical-align:middle;"/> Facebook</a>*/ ?>
+						<? if($expanded_profile['contact-email-address'] != ''): ?><a href="mailto:<?=$expanded_profile['contact-email-address']; ?>" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/email.png" style="vertical-align:top;margin-top:4px;"/> Email</a><?endif;?>
 					</p>
 				</div>
 				<p>Author short bio information would go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida orci ac dolor venenatis tempor. Nam porttitor hendrerit metus, sed vehicula ligula ornare quis. Proin sit amet egestas libero. Nunc eu felis leo. </p>
