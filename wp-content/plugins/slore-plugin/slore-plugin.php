@@ -10,7 +10,13 @@ Author URI: http://www.envigiomedia.com
 
 define( 'SLORE_BASE', WP_PLUGIN_DIR."/slore-plugin/");
 
-// Gather the Plugin Conf, which loads up the plugin hook arrays.
+// Gather the Config's
+include(SLORE_BASE."/plugin-conf.php");
 
-include(SLORE_BASE."plugin-conf.php");
-include(SLORE_BASE."loader-class.php");
+
+// Load the class
+$base_class = new slore_base_class();
+
+//Go
+
+$base_class->go();

@@ -8,6 +8,7 @@
 class plugin_loader {
 	
 	private static $self_instance;
+	private static $loaded_plugins;
 	
 	function get_instance()
 	{
@@ -17,5 +18,17 @@ class plugin_loader {
 		}
 		
 		return self::$self_instance;
+	}
+	
+	function _load($plugin_name, $plugin_loc)
+	{
+		if(!isset(self::$loaded_plugins[$plugin_name]))
+		{
+			include_once(SLORE_BASE.'inc/'.$plugin_loc.'/'.$plugin_name.'.php');
+			
+			self::$loaded_plugins[$plugin_name] = new $plugin_name;
+		}
+		
+		return true;
 	}
 }
