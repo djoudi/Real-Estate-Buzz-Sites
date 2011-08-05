@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CURRDIR='/var/www/rebuzzsites_trunk'
+CURRDIR="$( cd "$( dirname "$0" )" && pwd )"
 
 echo "Deploying Site\n";
-ln -s  /var/www/rebuzzsites_trunk/index.php index.php
-ln -s  /var/www/rebuzzsites_trunk/info.php info.php
-ln -s  /var/www/rebuzzsites_trunk/license.txt license.txt
-ln -s  /var/www/rebuzzsites_trunk/README README
-ln -s  /var/www/rebuzzsites_trunk/wp-activate.php wp-activate.php
+ln -s  $CURRDIR/index.php index.php
+ln -s  $CURRDIR/info.php info.php
+ln -s  $CURRDIR/license.txt license.txt
+ln -s  $CURRDIR/README README
+ln -s  $CURRDIR/wp-activate.php wp-activate.php
 
 mkdir wp-admin
 
@@ -16,35 +16,35 @@ do
 ln -s $i ${i#$CURRDIR/}
 done
 
-ln -s  /var/www/rebuzzsites_trunk/wp-app.php wp-app.php
-ln -s  /var/www/rebuzzsites_trunk/wp-atom.php wp-atom.php
-ln -s  /var/www/rebuzzsites_trunk/wp-blog-header.php wp-blog-header.php
-ln -s  /var/www/rebuzzsites_trunk/wp-comments-post.php wp-comments-post.php
-ln -s  /var/www/rebuzzsites_trunk/wp-commentsrss2.php wp-commentsrss2.php
+ln -s  $CURRDIR/wp-app.php wp-app.php
+ln -s  $CURRDIR/wp-atom.php wp-atom.php
+ln -s  $CURRDIR/wp-blog-header.php wp-blog-header.php
+ln -s  $CURRDIR/wp-comments-post.php wp-comments-post.php
+ln -s  $CURRDIR/wp-commentsrss2.php wp-commentsrss2.php
 
 mkdir wp-content
 mkdir wp-content/uploads
 
 
-ln -s  /var/www/rebuzzsites_trunk/wp-content/plugins ./wp-content/plugins
-ln -s  /var/www/rebuzzsites_trunk/wp-content/themes ./wp-content/themes
+ln -s  $CURRDIR/wp-content/plugins ./wp-content/plugins
+ln -s  $CURRDIR/wp-content/themes ./wp-content/themes
 
-ln -s  /var/www/rebuzzsites_trunk/wp-cron.php wp-cron.php
-ln -s  /var/www/rebuzzsites_trunk/wp-feed.php wp-feed.php
-ln -s  /var/www/rebuzzsites_trunk/wp-includes wp-includes
-ln -s  /var/www/rebuzzsites_trunk/wp-links-opml.php wp-links-opml.php
-ln -s  /var/www/rebuzzsites_trunk/wp-load.php wp-load.php
-ln -s  /var/www/rebuzzsites_trunk/wp-login.php wp-login.php
-ln -s  /var/www/rebuzzsites_trunk/wp-mail.php wp-mail.php
-ln -s  /var/www/rebuzzsites_trunk/wp-pass.php wp-pass.php
-ln -s  /var/www/rebuzzsites_trunk/wp-rdf.php wp-rdf.php
-ln -s  /var/www/rebuzzsites_trunk/wp-register.php wp-register.php
-ln -s  /var/www/rebuzzsites_trunk/wp-rss2.php wp-rss2.php
-ln -s  /var/www/rebuzzsites_trunk/wp-rss.php wp-rss.php
-ln -s  /var/www/rebuzzsites_trunk/wp-settings.php wp-settings.php
-ln -s  /var/www/rebuzzsites_trunk/wp-signup.php wp-signup.php
-ln -s  /var/www/rebuzzsites_trunk/wp-trackback.php wp-trackback.php
-ln -s  /var/www/rebuzzsites_trunk/xmlrpc.php xmlrpc.php
+ln -s  $CURRDIR/wp-cron.php wp-cron.php
+ln -s  $CURRDIR/wp-feed.php wp-feed.php
+ln -s  $CURRDIR/wp-includes wp-includes
+ln -s  $CURRDIR/wp-links-opml.php wp-links-opml.php
+ln -s  $CURRDIR/wp-load.php wp-load.php
+ln -s  $CURRDIR/wp-login.php wp-login.php
+ln -s  $CURRDIR/wp-mail.php wp-mail.php
+ln -s  $CURRDIR/wp-pass.php wp-pass.php
+ln -s  $CURRDIR/wp-rdf.php wp-rdf.php
+ln -s  $CURRDIR/wp-register.php wp-register.php
+ln -s  $CURRDIR/wp-rss2.php wp-rss2.php
+ln -s  $CURRDIR/wp-rss.php wp-rss.php
+ln -s  $CURRDIR/wp-settings.php wp-settings.php
+ln -s  $CURRDIR/wp-signup.php wp-signup.php
+ln -s  $CURRDIR/wp-trackback.php wp-trackback.php
+ln -s  $CURRDIR/xmlrpc.php xmlrpc.php
 
 touch rb-config.php
 touch wp-config.php
