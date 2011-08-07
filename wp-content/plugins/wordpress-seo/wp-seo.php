@@ -20,13 +20,13 @@ if ( version_compare(PHP_VERSION, '5.2', '<') ) {
 
 define( 'WPSEO_VERSION', '0.4.2' );
 
-$pluginurl = plugin_dir_url(__FILE__);
+$pluginurl = WP_PLUGIN_URL.'/wordpress-seo/';
 if ( preg_match( '/^https/', $pluginurl ) && !preg_match( '/^https/', get_bloginfo('url') ) )
 	$pluginurl = preg_replace( '/^https/', 'http', $pluginurl );
 define( 'WPSEO_FRONT_URL', $pluginurl );
 
-define( 'WPSEO_URL', plugin_dir_url(__FILE__) );
-define( 'WPSEO_PATH', plugin_dir_path(__FILE__) );
+define( 'WPSEO_URL', WP_PLUGIN_URL.'/wordpress-seo/' );
+define( 'WPSEO_PATH', WP_PLUGIN_DIR."/wordpress-seo/");
 define( 'WPSEO_BASENAME', plugin_basename( __FILE__ ) );
 
 require WPSEO_PATH.'inc/wpseo-functions.php';
