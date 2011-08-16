@@ -103,6 +103,58 @@ class simple_local_avatars
 		return $avatar;
 	}
 	
+	function get_logo( $avatar = '', $id_or_email, $size = '96', $default = '', $alt = false )
+	{
+		if ( is_numeric($id_or_email) ) 
+			$user_id = (int) $id_or_email;
+		elseif ( is_string($id_or_email) ) 
+		{
+			if ( $user = get_user_by_email( $id_or_email ) )
+				$user_id = $user->ID;	
+		} 
+		elseif ( is_object($id_or_email) && !empty($id_or_email->user_id) )
+			$user_id = (int) $id_or_email->user_id;
+		
+		if ( !empty($user_id) )
+			$local_avatars = get_user_meta( $user_id, 'simple_local_logo', true );
+			
+		if(!$local_avatars)
+		{
+			return;
+		}
+		
+		if ( !is_numeric($size) )		// ensure valid size
+			$size = '96';
+			
+		if ( empty($alt) )
+			$alt = get_the_author_meta( 'display_name', $user_id );
+			
+		// generate a new size
+		if ( empty( $local_avatars[$size] ) )
+		{
+			// Going to attempt to do an override - put the avatars somewhere else
+			add_filter('upload_dir','user_profile_ovr',90);
+			
+			$upload_path = wp_upload_dir();
+			$avatar_full_path = str_replace( $upload_path['baseurl'], $upload_path['basedir'], $local_avatars['full'] );
+			$image_sized = image_resize( $avatar_full_path, $size, $size, true );
+				
+			if ( is_wp_error($image_sized) )		// deal with original being >= to original image (or lack of sizing ability)
+				$local_avatars[$size] = $local_avatars['full'];
+			else
+				$local_avatars[$size] = str_replace( $upload_path['basedir'], $upload_path['baseurl'], $image_sized );	
+			
+			update_user_meta( $user_id, 'simple_local_logo', $local_avatars );
+		}
+		elseif ( substr( $local_avatars[$size], 0, 4 ) != 'http' )
+			$local_avatars[$size] = site_url( $local_avatars[$size] );
+		
+		$author_class = is_author( $user_id ) ? ' current-author' : '' ;
+		$avatar = "<img alt='" . esc_attr($alt) . "' src='" . $local_avatars[$size] . "' class='avatar avatar-{$size}{$author_class} photo' height='{$size}' width='{$size}' />";
+		
+		return $avatar;
+	}
+	
 	function admin_init()
 	{
 		load_plugin_textdomain( 'simple-local-avatars', false, dirname( plugin_basename( __FILE__ ) ) . '/localization/' );
@@ -171,6 +223,25 @@ class simple_local_avatars
 			?>
 			</td>
 		</tr>
+		
+		<tr>
+			<th><label for="simple-local-avatar">Upload Logo</label></th>
+			<td style="width: 50px;" valign="top">
+				<?=$this->get_logo('',$profileuser->ID,130);?>
+			</td>
+			<td>
+				<input type="file" name="simple-local-logo" id="simple-local-logo" /><br />
+				
+					<?if(!$this->get_logo('',$profileuser->ID)):?>
+						<span class="description">No local logo is set. Use the upload field to add a local logo.
+					<? else: ?>
+						<input type="checkbox" name="simple-local-avatar-erase" value="1" /> Delete Local Logo<br />
+						<span class="description">Replace the local logo by uploading a new avatar, or erase the local logo by checking the delete option</span>
+					<?endif;?>
+				
+			</td>
+		</tr>
+		
 	</table>
 	
 	<script type="text/javascript">
@@ -226,6 +297,41 @@ class simple_local_avatars
 		}
 		elseif ( isset($_POST['simple-local-avatar-erase']) && $_POST['simple-local-avatar-erase'] == 1 )
 			$this->avatar_delete( $user_id );
+		
+		if( !empty($_FILES['simple-local-logo']['name']) )
+		{
+			$mimes = array(
+				'jpg|jpeg|jpe' => 'image/jpeg',
+				'gif' => 'image/gif',
+				'png' => 'image/png',
+				'bmp' => 'image/bmp',
+				'tif|tiff' => 'image/tiff'
+			);
+		
+			// front end (theme my profile etc) support
+			if ( ! function_exists( 'wp_handle_upload' ) )
+				require_once( ABSPATH . 'wp-admin/includes/file.php' );
+		
+			$avatar = wp_handle_upload( $_FILES['simple-local-logo'], array( 'mimes' => $mimes, 'test_form' => false ) );
+			
+			if ( empty($avatar['file']) )	// handle failures
+			{	
+				switch ( $avatar['error'] ) 
+				{
+					case 'File type does not meet security guidelines. Try another.' :
+						add_action( 'user_profile_update_errors', create_function('$a','$a->add("avatar_error",__("Please upload a valid image file for the avatar.","simple-local-avatars"));') );				
+						break;
+					default :
+						add_action( 'user_profile_update_errors', create_function('$a','$a->add("avatar_error","<strong>".__("There was an error uploading the avatar:","simple-local-avatars")."</strong> ' . esc_attr( $avatar['error'] ) . '");') );
+				}
+				
+				return;
+			}
+			
+			update_user_meta( $user_id, 'simple_local_logo', array( 'full' => $avatar['url'] ) );		// save user information (overwriting old)
+		} elseif(isset($_POST['simple-local-logo-erase']) && $_POST['simple-local-logo-erase'] == 1 ) {
+		
+		}
 	}
 	
 	/**
@@ -290,6 +396,15 @@ function get_simple_local_avatar( $id_or_email, $size = '96', $default = '', $al
 }
 
 endif;
+
+
+// This is dangerous.. because there is no way to ensure this
+
+function get_user_logo($id_or_email, $size = '96', $default = '', $alt = false)
+{
+	global $simple_local_avatars;
+	return $simple_local_avatars->get_logo( '', $id_or_email, $size, $default, $alt );
+}
 
 /**
  * on uninstallation, remove the custom field from the users and delete the local avatars
