@@ -14,7 +14,7 @@
 					<div id="main-featured-post" style="float:left;height:280px;width:634px;background:#000;margin-right:15px;position:relative;">
 						<img src="/images-main/introwelcome.jpg"/>
 						<span style="display:block;text-align:right;background:#990000;font-size:18px;Font-family:Georgia;color:#FFF;position:absolute;top:170px;right:0px;padding:7px 10px;font-weight:bold;">Welcome to San Luis Real Estate Buzz</span>
-						<span style="display:block;text-align:right;background:rgba(0, 0, 0, 0.7);font-size:12px;Font-family:Georgia;color:#FFF;position:absolute;bottom:20px;right:0px;padding:7px 10px;">We have just launched a new type of real estate site that is dedicated to helping you become informed.<br/><a href="#" style="color:#FFF;">Read More &raquo;</a></span>
+						<span style="display:block;text-align:right;background:rgba(0, 0, 0, 0.7);font-size:12px;Font-family:Georgia;color:#FFF;position:absolute;bottom:20px;right:0px;padding:7px 10px;">We have just launched a new type of real estate site that is dedicated to helping you become informed.<br/><a href="/about" style="color:#FFF;">Read More &raquo;</a></span>
 						
 					</div>
 					<? /*
