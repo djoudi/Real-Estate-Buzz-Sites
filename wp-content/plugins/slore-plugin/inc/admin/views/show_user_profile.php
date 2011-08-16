@@ -41,5 +41,17 @@
 				<textarea name="expanded_profile[address]" cols="20" rows="3"><?=(isset($expanded_profile['address']) && $expanded_profile['address'] != '')?$expanded_profile['address']:''?></textarea>
 			</td>
 		</tr>
+		<? if(current_user_can('administrator')): ?>
+		<tr>
+			<th>User Type</th>
+			<td>
+				<ul>
+					<li><input type="radio" name="user_profile_type" value="agent" <?=($user_type=='agent')?'checked="checked"':'';?>/> Real Estate Agent</li>
+					<li><input type="radio" name="user_profile_type" value="mortgage" <?=($user_type=='mortgage')?'checked="checked"':'';?>/> Mortgage Broker</li>
+					<li><input type="radio" name="user_profile_type" value="escrow" <?=($user_type=='escrow')?'checked="checked"':'';?>/> Escrow Officer</li>
+				</ul>
+			</td>
+		</tr>
+		<?endif;?>
 	</tbody>
 </table>

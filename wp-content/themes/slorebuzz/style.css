@@ -118,10 +118,12 @@ label {float:left;width:200px;font-weight:bold;}
 #leader-board {margin:11px 0 4px;}
 	#leader-board .leader-add {margin-left:8px;}
 
-.profile-contact {padding:5px 10px;background:#eeeeee;border-top:1px solid #a7a7a7;margin-bottom:20px;}
+.profile-content {padding:5px 10px;background:#eeeeee;border-top:1px solid #a7a7a7;margin-bottom:20px;}
+.profile-contact {margin-bottom:18px;}
 	.profile-contact label {float:left;width:140px;color:#989898;}
 	.profile-contact .proflie-phone {font-size:19px;}
 
-.profile-description {margin-bottom:20px;}
+.profile-description {margin-bottom:20px;font-size:12px;background:#eeeeee;}
+.profile-image-logo {float:right;margin-left:15px;margin-top:6px;}
 
 .profile-company {color:#878787;font-size:18px;font-weight:bold;margin-top:-9px;padding-left:2px;margin-bottom:18px;}

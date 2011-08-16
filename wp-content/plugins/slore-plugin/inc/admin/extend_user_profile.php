@@ -22,6 +22,7 @@ class extend_user_profile {
 		// Get the expando Vars...
 		global $current_user;
 		$expanded_profile = get_user_meta($current_user->data->ID,'_slore_expanded_profile', true);
+		$user_type = get_user_meta($current_user->data->ID,'_slore_user_type', true);
 		
 		include(SLORE_ADMIN_VIEWS.'show_user_profile.php');
 	}
@@ -31,6 +32,7 @@ class extend_user_profile {
 		// Get the expando Vars...
 		global $user_id;
 		$expanded_profile = get_user_meta($user_id,'_slore_expanded_profile', true);
+		$user_type = get_user_meta($user_id,'_slore_user_type', true);
 		
 		include(SLORE_ADMIN_VIEWS.'show_user_profile.php');
 	}
@@ -45,6 +47,7 @@ class extend_user_profile {
 			$new_meta = $_POST['expanded_profile'];
 			
 			update_user_meta($current_user->data->ID,'_slore_expanded_profile',$new_meta);
+			update_user_meta($current_user->data->ID,'_slore_user_type',$_POST['user_profile_type']);
 		}
 	}
 	
@@ -58,6 +61,7 @@ class extend_user_profile {
 			$new_meta = $_POST['expanded_profile'];
 			
 			update_user_meta($user_id,'_slore_expanded_profile',$new_meta);
+			update_user_meta($user_id,'_slore_user_type',$_POST['user_profile_type']);
 		}
 	}
 	
