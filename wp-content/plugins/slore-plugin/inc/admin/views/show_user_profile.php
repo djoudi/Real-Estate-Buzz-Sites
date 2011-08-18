@@ -52,6 +52,10 @@
 				</ul>
 			</td>
 		</tr>
+		<? else: ?>
+			<? if($user_type): ?>
+				<input type="hidden" name="user_profile_type" value="<?=$user_type; ?>" />
+			<?endif;?>
 		<?endif;?>
 	</tbody>
 </table>
