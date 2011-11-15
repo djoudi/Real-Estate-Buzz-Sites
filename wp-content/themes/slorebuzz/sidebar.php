@@ -33,11 +33,14 @@
 					Thank You for Visiting!
 				</h3>
 				
-				<div class="" style="margin-left:12px;">
+				<div class="" style="margin:0px 12px;">
 					<p>We are really glad that you are here, and we want to make your visit as clean and smooth as possible. If you have any comments or suggestions please feel free to <a href="/contact">contact us</a> and let us know.<br/><strong>Come Back Soon!</strong></p>
 				</div>
 		
 		</div>
+		
+		<?php if ( !dynamic_sidebar('SidNavSideBar') ) : ?>
+		<?php endif; ?>
 		
 		<div class="sb-footer"></div>
 	</div>

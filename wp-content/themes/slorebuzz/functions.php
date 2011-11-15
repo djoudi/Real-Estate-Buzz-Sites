@@ -31,3 +31,15 @@ function _slore_excerpt_more($mo)
 	global $post;
 	return '<br/><a href="'. get_permalink($post->ID) . '">Read More &raquo;</a>';
 }
+
+if ( function_exists('register_sidebar') )
+{
+    register_sidebar(array(
+		'name'          => 'SidNavSideBar',
+		'id'            => 'sidebar-$i',
+		'before_widget' => '<div class="sibebar-content %2$s" id="%1$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="main-heading" style="font-size:20px;font-family:Georgia;color:#043d55;margin-left:11px;margin-bottom:7px;margin-right:12px;border-bottom:1px solid #bdb7a0;line-height:27px;">',
+		'after_title' => '</h3>',
+    ));
+}
