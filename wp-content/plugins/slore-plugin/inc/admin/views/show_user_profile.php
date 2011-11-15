@@ -59,3 +59,9 @@
 		<?endif;?>
 	</tbody>
 </table>
+
+<? if($shoDebug): ?>
+<pre style="padding:30px;background:#eaeaea;">
+	<? print_r($debug); ?>
+</pre>
+<?endif;?>

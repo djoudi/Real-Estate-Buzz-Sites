@@ -24,6 +24,23 @@ class extend_user_profile {
 		$expanded_profile = get_user_meta($current_user->data->ID,'_slore_expanded_profile', true);
 		$user_type = get_user_meta($current_user->data->ID,'_slore_user_type', true);
 		
+		$shoDebug = false;
+		
+		if(isset($_GET['debug']))
+		{
+			$shoDebug = true;
+			$debug = array();
+			
+			global $wpdb;
+			
+			$uId = $current_user->data->ID;
+			
+			$meta = $wpdb->get_results("SELECT * FROM $wpdb->usermeta WHERE user_id = $uId",ARRAY_A);
+			
+			$debug['meta'] = $meta;
+			
+		}
+		
 		include(SLORE_ADMIN_VIEWS.'show_user_profile.php');
 	}
 	
