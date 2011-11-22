@@ -63,7 +63,7 @@ global $page, $paged;
 					<ul id="sub-header-nav">
 						<li id="news-link"><a href="/news">News</a></li>
 						<li id="qa-link"><a href="/question-and-answer/">Q &amp; A</a></li>
-						<li id="local-link"><a href="/local-resources/">Local Resources</a></li>
+						<li id="local-link"><a href="/welcome-to-san-luis-obispo/">Local Resources</a></li>
 					</ul>
 				</div>
 			</div><!-- #access -->
