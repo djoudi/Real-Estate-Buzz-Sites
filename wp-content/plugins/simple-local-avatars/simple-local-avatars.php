@@ -79,7 +79,7 @@ class simple_local_avatars
 			$user_id = (int) $id_or_email->user_id;
 		
 		if ( empty( $user_id ) )
-			return $avatar;
+			return 'empty'.$avatar;
 		
 		$local_avatars = get_user_meta( $user_id, 'simple_local_logo', true );
 		
@@ -356,6 +356,14 @@ function get_simple_local_avatar( $id_or_email, $size = '96', $default = '', $al
 	
 	return $avatar;
 }
+
+function get_author_logo($id_or_email,$size = '96', $default = '', $alt = false )
+{
+	global $simple_local_avatars;
+	$avatar = $simple_local_avatars->get_logo( '', $id_or_email, $size, $default, $alt );
+	
+	return $avatar;
+}	
 
 /**
  * on uninstallation, remove the custom field from the users and delete the local avatars

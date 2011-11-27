@@ -54,10 +54,10 @@
 				<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
 			
-			<div style="margin-top:14px;overflow:hidden;">
+			<div class="share-wide">
 				<h4>Did You Like this Article? Share it!</h4>
 				<div id="facebook" style="float:left;margin-right:12px;width:47px;overflow:hidden;">
-					<iframe src="http://www.facebook.com/plugins/like.php?app_id=249908208354495&amp;href&amp;send=false&amp;layout=box_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=tahoma&amp;height=90" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:90px;" allowTransparency="true"></iframe>
+					<div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false"></div>
 				</div>
 				<div id="twitter-share" style="float:left;margin-right:12px;width:57px;overflow:hidden;">
 					<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="slorebuzz">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
@@ -83,18 +83,32 @@
 					//print_r($expanded_profile);
 					
 				?>
-				<h4><?php the_author_posts_link(); ?> <span style="font-size:16px;color:#474747;font-weight:bold;margin-left:12px;"><?=$expanded_profile['company'];?></span></h4>
+				<h4>
+					<?php the_author_posts_link(); ?><br/>
+					<span style="font-size:16px;color:#474747;font-weight:normal;font-style:italic;color:#787878;"><?=$expanded_profile['company'];?></span>
+				</h4>
 				<div class="contact-box" style="margin-top:3px;border-top:1px solid #dadada;padding-top:7px;">
 					<p>
 						<span class="contact-label" style="font-weight:bold;margin-right:18px;">Contact:</span>
-						<span class="post-phone" style="font-weight:bold;color:#043D55;font-size:18px;margin-right:18px;"><?=$expanded_profile['phone'];?></span>
-						<? /*<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/twitter.png" style="vertical-align:middle;"/> Twitter</a>
-						<a href="#" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/facebook.png" style="vertical-align:middle;"/> Facebook</a>*/ ?>
-						<? if($expanded_profile['contact-email-address'] != ''): ?><a href="mailto:<?=$expanded_profile['contact-email-address']; ?>" style="text-decoration:none;margin-right:7px;"><img src="/wp-content/themes/slorebuzz/images/email.png" style="vertical-align:top;margin-top:4px;"/> Email</a><?endif;?>
+						<span class="post-phone" style=""><?=$expanded_profile['phone'];?></span>
+						<?php if($expanded_profile['twitter'] != ''): ?>
+							<a href="http://www.twitter.com/<?=$expanded_profile['twitter']; ?>" class="contact-link" style=""><img src="/wp-content/themes/slorebuzz/images/twitter.png"/> Twitter</a>
+						<?php endif; ?>
+						<?php if($expanded_profile['facebook'] != ''): ?>
+							<a href="http://www.facebook.com/<?=$expanded_profile['facebook']?>" class="contact-link"><img src="/wp-content/themes/slorebuzz/images/facebook.png"/> Facebook</a>
+						<?php endif;?>
+						<? if($expanded_profile['contact-email-address'] != ''): ?>
+							<a href="mailto:<?=$expanded_profile['contact-email-address']; ?>" class="contact-link" >
+								<img src="/wp-content/themes/slorebuzz/images/email.png" />
+								Email
+							</a>
+						<?endif;?>
 					</p>
 				</div>
-				<? /*<p>Author short bio information would go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida orci ac dolor venenatis tempor. Nam porttitor hendrerit metus, sed vehicula ligula ornare quis. Proin sit amet egestas libero. Nunc eu felis leo. </p> */?>
-				<p><a href="<?=get_author_posts_url(get_the_author_meta('ID'));?>">Learn More &raquo;</a></p>
+				<? if($expanded_profile['short-profile'] != ''): ?>
+					<p><?=nl2br($expanded_profile['short-profile']); ?></p>
+				<? endif;?>
+				<p><a href="<?=get_author_posts_url(get_the_author_meta('ID'));?>">View Complete Profile</a></p>
 				
 			</div>
 			

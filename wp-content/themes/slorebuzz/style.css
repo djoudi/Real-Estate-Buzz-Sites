@@ -9,8 +9,8 @@ License URI: license.txt
 
 /* Global */
 .screen-reader-text {display:none;}
-h1, h2, h3, h4, p {margin:0;padding:0;margin-bottom:0.2em;}
-p {line-height:160%;}
+h1, h2, h3, h4 {margin:0;padding:0;margin-bottom:0.2em;}
+p {line-height:1.4em;}
 h1 {font-size:32px;font-family:Georgia;color:#043D55;}
 h2 {font-size:24px;font-family:Georgia;}
 h3 {font-size:18px;font-family:Georgia;}
@@ -24,10 +24,14 @@ body {padding:0;margin:0;width:100%;background:url(/wp-content/themes/slorebuzz/
 form p {margin-bottom:7px;}
 label {float:left;width:200px;font-weight:bold;}
 
+table {width:600px;}
+td {padding:5px;}
 .twitter-follow-button {width:134px !important;}
 
 .top-avatar {float:right;width:120px;margin-left:15px;text-align:center;background:#eaeaea;border:2px solid #A7A7A7}
-.single-title {float:left;}
+.top-avatar p {margin-top:0px;margin-bottom:5px;}
+
+.single-title {float:left;width:491px;}
 .single-meta {padding-top:44px;margin-bottom:20px;}
 
 #outer-wrap {min-height: 100%;position:relative;}
@@ -93,12 +97,19 @@ label {float:left;width:200px;font-weight:bold;}
 	#container #content .post .post-entry-title {font-size:28px;margin-top:5px;margin-bottom:5px;}
 	#container #content .post .post-entry-meta {font-size:11px;margin-bottom:18px;}
 	
-	#container #content #author-box {background:#eaeaea;border-top:1px solid #777;padding:5px 10px;overflow:hidden;}
+	#container #content #author-box {background:#efefef;padding:5px 10px;overflow:hidden;}
 		#container #content .post-entry-content {margin-bottom:30px;}
 		.post-author-avatar {margin-left:11px;margin-top:4px;}
-		#container #content #author-box h4 {font-size:18px;text-decoration:none;margin-bottom:5px;}
-		#container #content .contact-box {margin-bottom:9px;}
+		#container #content #author-box h4 {font-size:24px;text-decoration:none;margin-bottom:5px;line-height:0.9em;margin-top:8px;}
+		#container #content .contact-box {margin-bottom:9px;border-top:none !important;}
+		#container #content .contact-box p {margin-top:0px;}
+		#container #content .contact-box .post-phone {font-weight:bold;color:#043D55;font-size:20px;font-style:italic;margin-right:18px;}
+		#container #content .contact-box .contact-link {text-decoration:none;margin-right:7px;display:inline-block;}
+		#container #content .contact-box .contact-link img {float:left;margin-right:4px;}
 		#container #content #author-box .post-author-avatar {float:right;}
+	
+	#container .share-wide {width:100%;overflow:hidden;padding:8px 0px;border-bottom:1px solid #eaeaea;margin-bottom:12px;}
+	#container .share-wide h4 {font:bold italic 18px Georgia;margin-bottom:12px;color:#043D55;}
 	
 #sidebar {width:300px;float:right;overflow:hidden;}
 	#sidebar #google-widget	{background: #424242;border: 1px solid #000; border-bottom:3px solid #000; height: 26px;padding: 10px 20px;position:relative;margin-bottom:9px;}

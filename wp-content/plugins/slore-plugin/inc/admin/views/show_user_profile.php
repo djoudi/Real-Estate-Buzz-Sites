@@ -42,6 +42,13 @@
 			</td>
 		</tr>
 		<? if(current_user_can('administrator')): ?>
+		tr>
+			<th>Short Profile</th>
+			<td>
+				<textarea name="expanded_profile[short-profile]" cols="20" rows="3"><?=(isset($expanded_profile['short-profile']) && $expanded_profile['short-profile'] != '')?$expanded_profile['short-profile']:''?></textarea>
+			</td>
+		</tr>
+		
 		<tr>
 			<th>User Type</th>
 			<td>

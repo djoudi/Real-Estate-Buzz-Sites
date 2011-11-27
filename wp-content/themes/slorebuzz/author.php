@@ -12,7 +12,7 @@ $expandedProfile = get_user_meta($curauth->ID, '_slore_expanded_profile', true);
 				
 				<div class="profile-content">
 				
-				<div class="profile-image-logo"><?=get_user_logo($curauth->ID, '180');?></div>
+				<div class="profile-image-logo"><?=get_author_logo($curauth->ID, '180');?></div>
 				
 				<h1><?=$curauth->display_name; ?></h1>
 				<?if(isset($expandedProfile['company']) && $expandedProfile['company'] != ''):?><div class="profile-company"><a href="<?=$curauth->user_url;?>" target="_blank" rel="nofollow"><?=$expandedProfile['company']?></a></div><?endif;?>
