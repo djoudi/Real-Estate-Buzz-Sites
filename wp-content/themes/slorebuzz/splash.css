@@ -1,0 +1,9 @@
+		
+		
+		body{ background:#f0f0f0;font:12px "Trebuchet MS","Helvetica",sans-serif;margin:0;padding:0;}
+		#mainWrapper {width:591px;height:380px;margin:180px auto auto;padding:0;background:url(/base-images/main_bg.png) no-repeat top center;overflow:hidden;}
+		#mainWrapper h1 {display:block;width:591px;height:131px;text-indent:-9999px;margin:0;}
+		#mainWrapper p {margin:0 0 12px;}
+		#mainWrapper h2 {margin:0 0 18px;}
+		#content {padding:18px 28px 20px;font:14px Arial, Sans;line-height:18px;}
+		#LrnMo {width:206px;height:36px;float:right;background:url(/base-images/learn_more.jpg) no-repeat top center;text-indent:-9999px;}
