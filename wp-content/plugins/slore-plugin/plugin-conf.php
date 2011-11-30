@@ -12,7 +12,7 @@ $slore_base_config = array(
 		'extend_user_profile'
 	),
 	'ui_classes' => array(
-		'contact_form'
+		'contact_form', 'splash_page'
 	)
 );
 
