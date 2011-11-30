@@ -14,6 +14,10 @@
 		<div id="recc-text">Recomend Us on Google</div>
 		<g:plusone href="<?=site_url();?>"></g:plusone>
 	</div>
+	<div id="twitter-widget">
+		<a href="https://twitter.com/slorebuzz" class="twitter-follow-button">Follow @slorebuzz</a>
+		<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+	</div>
 	
 	<div class="add-unit">
 	<script type="text/javascript"><!--
