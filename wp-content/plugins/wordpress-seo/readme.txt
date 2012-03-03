@@ -3,8 +3,8 @@ Contributors: joostdevalk
 Donate link: http://yoast.com/
 Tags: seo, SEO, google, meta, meta description, search engine optimization, xml sitemap, xml sitemaps, google sitemap, sitemap, sitemaps, robots meta, rss, rss footer, yahoo, bing, news sitemaps, XML News Sitemaps, WordPress SEO, WordPress SEO by Yoast, yoast, multisite, canonical, nofollow, noindex, keywords, meta keywords, description, webmaster tools, google webmaster tools, seo pack
 Requires at least: 3.1
-Tested up to: 3.2
-Stable tag: 1.0.3
+Tested up to: 3.3
+Stable tag: 1.1.5
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the WordPress SEO plugin by Yoast.
 
@@ -132,12 +132,62 @@ Also, other than All In One SEO Pack, this plugin has a completely working canon
 
 == Changelog ==
 
-= next =
+= 1.1.5 =
 
+* Removing the Dashboard widget.
+
+= 1.1.4 =
+
+* Removed the canonical redirect as that was screwing with people's setups (and minds).
+
+= 1.1.3 =
+
+* Fix for the blog homepage title, description etc.
+* Added several filters for use in the soon to be released [Video SEO module](http://yoast.com/wordpress/seo/video-seo/).
+* Change to XSL for XML Sitemaps.
+* Non-canonical hostnames (like example.com when site setting is www.example.com) now 301 redirect to canonical hostname.
+* Static frontpages now added to XML sitemap *with* images if it has them, same for interior blog pages.
+
+= 1.1.2 =
+
+* No longer add redirected URLs to the XML Sitemap.
+* Plugin now properly adds images in galleries to the XML Sitemap too.
+* Fixed a bug in home page title logic, affecting blogs with a static front page and a separate posts page, who were unable to set the posts page's title.
+* Fixed a bug in the OpenGraph admin implementation.
+* Google Suggest works again, and properly this time.
+* Using entities in the snippet preview title & description field now still renders a correct "chars left" count.
+* Replaced the last single quotes with double quotes for meta fields, apparently Bing wouldn't verify because of the single quotes in the verification line.
+* Added option to verify your site with Alexa, as a lot of people requested this.
+
+= 1.1.1 =
+
+* Fixed `sprintf` bug in Linkdex check.
+* Fixed bug that caused inability to edit / save the search page title.
+* Fixed bug that caused inability to edit / save the "parent" blog in multisite settings.
+* Removed ability to edit WP Super Cache .htaccess file as it doesn't seem to be there anymore.
+* Removed Yahoo! Site Explorer.
+
+= 1.1 =
+
+* Biggest change: entire plugin now supports localization, testing can be done by dropping your properly named .mo file (wordpress-seo-nl_NL.mo for instance) into the languages dir. 
+* Added Dutch, German, French, Hebrew, Italian, Russian and Swedish translations.
 * Show proper post type names in admin menu for disabling editor box and hide non-public post types (props Nacin).
 * Disabling the Advanced Editor now only disables it for non admins.
 * Replaced single quotes with double quotes in meta description and canonical, to please [Danny Sullivan](http://searchengineland.com).
 * Fixed issue with images in XML sitemaps.
+* Added Social menu item.
+* Lots of changes to the Facebook integration:
+	* Added the locale.
+	* Added default image.
+	* Added homepage image & description.
+	* New method of adding Facebook Admins.
+* Removed all nofollow settings, login register links are now nofollow by default, all other functionality removed as it doesn't make sense anymore.
+* Cosmetic changes: added some Yoast links to backend widget in the right sidebar.
+* Switched text domain from a constant to a proper string 'wordpress-seo'.
+* Removed the now unneeded extra styling for admin pointers.
+* Fixed a notice in 3.3beta with caused by `wp_reset_query` being called too early.
+* Added several filters to allow WPML (and other plugins) to create XML Sitemaps for other languages.
+* Minor updates to the plugin tour, removing the "Stop tour" button, "Close" now closes until you manually restart.
 
 = 1.0.3 =
 

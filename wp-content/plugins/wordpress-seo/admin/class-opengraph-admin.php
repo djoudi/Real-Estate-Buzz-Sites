@@ -1,6 +1,6 @@
 <?php 
 
-class WPSEO_OpenGraph_Admin {
+class WPSEO_Social_Admin {
 
 	public function __construct() {
 		$options = get_wpseo_options();
@@ -12,7 +12,7 @@ class WPSEO_OpenGraph_Admin {
 	}
 
 	public function tab_header() {
-		echo '<li class="opengraph"><a href="javascript:void(null);">'.__('OpenGraph').'</a></li>';
+		echo '<li class="wpseo-social"><a href="javascript:void(null);">'.__('Social', 'wordpress-seo' ).'</a></li>';
 	}
 
 	public function tab_content() {
@@ -22,7 +22,7 @@ class WPSEO_OpenGraph_Admin {
 		foreach( $this->get_meta_boxes() as $meta_box ) {
 			$content .= $wpseo_metabox->do_meta_box( $meta_box );
 		}
-		$wpseo_metabox->do_tab( 'opengraph', __('OpenGraph'), $content );
+		$wpseo_metabox->do_tab( 'wpseo-social', __('Social', 'wordpress-seo' ), $content );
 	}
 	
 	public function get_meta_boxes( ) {
@@ -33,8 +33,16 @@ class WPSEO_OpenGraph_Admin {
 			"type" => "textarea",
 			"std" => "",
 			"richedit" => false,
-			"title" => __("OpenGraph Description"),
-			"description" => __('If you don\'t want to use the meta description for sharing the post on Facebook but want another description there, write it here.')
+			"title" => __("Facebook Description", 'wordpress-seo' ),
+			"description" => __('If you don\'t want to use the meta description for sharing the post on Facebook but want another description there, write it here.', 'wordpress-seo' )
+		);
+		$mbs['google-plus-description'] = array(
+			"name" => "google-plus-description",
+			"type" => "textarea",
+			"std" => "",
+			"richedit" => false,
+			"title" => __("Google+ Description", 'wordpress-seo' ),
+			"description" => __('If you don\'t want to use the meta description for sharing the post on Google+ but want another description there, write it here.', 'wordpress-seo' )
 		);
 		return $mbs;
 	}
@@ -46,4 +54,4 @@ class WPSEO_OpenGraph_Admin {
 	
 }
 
-$wpseo_og = new WPSEO_OpenGraph_Admin();
+$wpseo_social = new WPSEO_Social_Admin();

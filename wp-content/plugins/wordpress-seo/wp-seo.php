@@ -1,39 +1,40 @@
 <?php 
 /*
 Plugin Name: WordPress SEO
-Version: 1.0.3
-Plugin URI: http://yoast.com/wordpress/seo/
+Version: 1.1.5
+Plugin URI: http://yoast.com/wordpress/seo/#utm_source=wpadmin&utm_medium=plugin&utm_campaign=wpseoplugin
 Description: The first true all-in-one SEO solution for WordPress, including on-page content analysis, XML sitemaps and much more.
 Author: Joost de Valk
 Author URI: http://yoast.com/
 */
 
+define( 'WPSEO_URL', plugin_dir_url(__FILE__) );
+define( 'WPSEO_PATH', plugin_dir_path(__FILE__) );
+define( 'WPSEO_BASENAME', plugin_basename( __FILE__ ) );
+
+load_plugin_textdomain( 'wordpress-seo', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+
 if ( version_compare(PHP_VERSION, '5.2', '<') ) {
 	if ( is_admin() && (!defined('DOING_AJAX') || !DOING_AJAX) ) {
 		require_once ABSPATH.'/wp-admin/includes/plugin.php';
 		deactivate_plugins( __FILE__ );
-	    wp_die( __('WordPress SEO requires PHP 5.2 or higher, as does WordPress 3.2 and higher. The plugin has now disabled itself. For more info, <a href="http://yoast.com/requires-php-52/">see this post</a>.') );
+	    wp_die( sprintf( __('WordPress SEO requires PHP 5.2 or higher, as does WordPress 3.2 and higher. The plugin has now disabled itself. For more info, %s$1see this post%s$2.', 'wordpress-seo'), '<a href="http://yoast.com/requires-php-52/">', '</a>') );
 	} else {
 		return;
 	}
 }
 
-define( 'WPSEO_VERSION', '1.0.3' );
+define( 'WPSEO_VERSION', '1.1.5' );
 
 global $wp_version;
 
-$pluginurl = plugin_dir_url(__FILE__);
+$pluginurl = plugin_dir_url( __FILE__ );
 if ( preg_match( '/^https/', $pluginurl ) && !preg_match( '/^https/', get_bloginfo('url') ) )
 	$pluginurl = preg_replace( '/^https/', 'http', $pluginurl );
 define( 'WPSEO_FRONT_URL', $pluginurl );
 
-define( 'WPSEO_URL', plugin_dir_url(__FILE__) );
-define( 'WPSEO_PATH', plugin_dir_path(__FILE__) );
-define( 'WPSEO_BASENAME', plugin_basename( __FILE__ ) );
-
 require WPSEO_PATH.'inc/wpseo-functions.php';
 require WPSEO_PATH.'inc/class-rewrite.php';
-require WPSEO_PATH.'inc/class-widgets.php';
 require WPSEO_PATH.'inc/class-sitemaps.php';
 
 if ( !defined('DOING_AJAX') || !DOING_AJAX )
@@ -128,6 +129,19 @@ function wpseo_maybe_upgrade() {
 		$opt = (array) get_option( 'wpseo_indexation' );		
 		unset( $opt['hideindexrel'], $opt['hidestartrel'], $opt['hideprevnextpostlink'], $opt['hidewpgenerator'] );
 		update_option( 'wpseo_indexation', $opt );
+	}
+
+	if ( version_compare( $current_version, '1.0.4', '<' ) ) {
+		$opt = (array) get_option( 'wpseo_indexation' );
+		$newopt = array(
+			'opengraph' => $opt['opengraph'],
+			'fb_pageid' => $opt['fb_pageid'],
+			'fb_adminid' => $opt['fb_adminid'],
+			'fb_appid' => $opt['fb_appid'],
+		);
+		update_option('wpseo_social', $newopt);
+		unset($opt['opengraph'], $opt['fb_pageid'], $opt['fb_adminid'], $opt['fb_appid']);
+		update_option('wpseo_indexation', $opt);
 	}
 	
 	$options['version'] = WPSEO_VERSION;
