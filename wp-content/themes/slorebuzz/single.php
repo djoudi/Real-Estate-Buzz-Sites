@@ -18,7 +18,7 @@ get_header(); ?>
 		
 			
 			<div id="leader-board">
-				<? get_template_part('adspot','leader'); ?>
+				<? //get_template_part('adspot','leader'); ?>
 			</div>
 			
 		<div id="container">

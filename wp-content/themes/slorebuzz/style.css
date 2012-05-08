@@ -19,7 +19,7 @@ h3 {font-size:18px;font-family:Georgia;}
 a {color:#043d55;}
 
 html {padding:0;margin:0;width:100%;background:#eaeaea;height:100%;}
-body {padding:0;margin:0;width:100%;background:url(/wp-content/themes/slorebuzz/images/header-bg.png) repeat-x top center;font-family:Arial;font-size:14px;height:100%;}
+body {padding:0;margin:0;width:100%;background:url(images/header-bg.png) repeat-x top center;font-family:Arial;font-size:14px;height:100%;}
 
 form p {margin-bottom:7px;}
 label {float:left;width:200px;font-weight:bold;}
@@ -44,45 +44,45 @@ td {padding:5px;}
 #site-title a {display:block;width:253px; height:98px; text-indent:-9999px;}
 
 #access {float:right;}
-#access #main-nav-div {background:url(/wp-content/themes/slorebuzz/images/main_header_left.jpg) no-repeat top left; overflow:hidden;padding-left:20px;}
-#access #main-nav-div #main-header-nav {margin:0;padding:0;background:url(/wp-content/themes/slorebuzz/images/main_header_right.jpg) no-repeat top right; overflow:hidden;padding-right:20px;}
+#access #main-nav-div {background:url(images/main_header_left.jpg) no-repeat top left; overflow:hidden;padding-left:20px;}
+#access #main-nav-div #main-header-nav {margin:0;padding:0;background:url(images/main_header_right.jpg) no-repeat top right; overflow:hidden;padding-right:20px;}
 #access #main-nav-div #main-header-nav li {float:left;list-style:none;margin:0;padding:0;height:47px;}
 #access #main-nav-div #main-header-nav li a {display:block;height:47px;text-indent:-9999px;}
 
-#access #main-nav-div #main-header-nav li#about-link {width:106px;background:url(/wp-content/themes/slorebuzz/images/main-about-on.jpg);}
-#access #main-nav-div #main-header-nav li#about-link a {width:106px;background:url(/wp-content/themes/slorebuzz/images/main-about-off.jpg);}
-#access #main-nav-div #main-header-nav li#about-link a:hover {background:url(/wp-content/themes/slorebuzz/images/main-about-on.jpg);}
+#access #main-nav-div #main-header-nav li#about-link {width:106px;background:url(images/main-about-on.jpg);}
+#access #main-nav-div #main-header-nav li#about-link a {width:106px;background:url(images/main-about-off.jpg);}
+#access #main-nav-div #main-header-nav li#about-link a:hover {background:url(images/main-about-on.jpg);}
 
-#access #main-nav-div #main-header-nav li#team-link {width:153px;background:url(/wp-content/themes/slorebuzz/images/main-team-on.jpg);}
-#access #main-nav-div #main-header-nav li#team-link a {width:153px;background:url(/wp-content/themes/slorebuzz/images/main-team-off.jpg);}
-#access #main-nav-div #main-header-nav li#team-link a:hover {background:url(/wp-content/themes/slorebuzz/images/main-team-on.jpg);}
+#access #main-nav-div #main-header-nav li#team-link {width:153px;background:url(images/main-team-on.jpg);}
+#access #main-nav-div #main-header-nav li#team-link a {width:153px;background:url(images/main-team-off.jpg);}
+#access #main-nav-div #main-header-nav li#team-link a:hover {background:url(images/main-team-on.jpg);}
 
-#access #main-nav-div #main-header-nav li#contact-link {width:117px;background:url(/wp-content/themes/slorebuzz/images/main-contact-on.jpg);}
-#access #main-nav-div #main-header-nav li#contact-link a {width:117px;background:url(/wp-content/themes/slorebuzz/images/main-contact-off.jpg);}
-#access #main-nav-div #main-header-nav li#contact-link a:hover {background:url(/wp-content/themes/slorebuzz/images/main-contact-on.jpg);}
+#access #main-nav-div #main-header-nav li#contact-link {width:117px;background:url(images/main-contact-on.jpg);}
+#access #main-nav-div #main-header-nav li#contact-link a {width:117px;background:url(images/main-contact-off.jpg);}
+#access #main-nav-div #main-header-nav li#contact-link a:hover {background:url(images/main-contact-on.jpg);}
 
-#access #subnav-div {background:url(/wp-content/themes/slorebuzz/images/subnav_title.jpg) no-repeat top left; overflow:hidden;padding-left:148px;margin-top:21px;}
-#access #subnav-div #sub-header-nav {margin:0;padding:0;height:30px;background:url(/wp-content/themes/slorebuzz/images/subnav.jpg) no-repeat top left;}
+#access #subnav-div {background:url(images/subnav_title.jpg) no-repeat top left; overflow:hidden;padding-left:148px;margin-top:21px;}
+#access #subnav-div #sub-header-nav {margin:0;padding:0;height:30px;background:url(images/subnav.jpg) no-repeat top left;}
 #access #subnav-div #sub-header-nav li {float:left;margin:0;padding:0;height:30px;list-style:none;}
 #access #subnav-div #sub-header-nav li a {display:block;margin:0;padding:0;height:30px;text-indent:-9999px;}
 
 #access #subnav-div #sub-header-nav li#news-link {width:60px;}
 #access #subnav-div #sub-header-nav li#news-link a {width:60px;}
-#access #subnav-div #sub-header-nav li#news-link a:hover {background:url(/wp-content/themes/slorebuzz/images/subnav.jpg) no-repeat 0px -30px;}
+#access #subnav-div #sub-header-nav li#news-link a:hover {background:url(images/subnav.jpg) no-repeat 0px -30px;}
 
 #access #subnav-div #sub-header-nav li#qa-link {width:54px;}
 #access #subnav-div #sub-header-nav li#qa-link a {width:54px;}
-#access #subnav-div #sub-header-nav li#qa-link a:hover {background:url(/wp-content/themes/slorebuzz/images/subnav.jpg) no-repeat -60px -30px;}
+#access #subnav-div #sub-header-nav li#qa-link a:hover {background:url(images/subnav.jpg) no-repeat -60px -30px;}
 
 #access #subnav-div #sub-header-nav li#local-link {width:147px;}
 #access #subnav-div #sub-header-nav li#local-link a {width:147px;}
-#access #subnav-div #sub-header-nav li#local-link a:hover {background:url(/wp-content/themes/slorebuzz/images/subnav.jpg) no-repeat -114px -30px;}
+#access #subnav-div #sub-header-nav li#local-link a:hover {background:url(images/subnav.jpg) no-repeat -114px -30px;}
 
 #main {overflow:hidden;}
 #container {width:670px;float:left;;overflow:hidden;}
-	#container #content {background:url(/wp-content/themes/slorebuzz/images/content_top.png) no-repeat top center;padding-top:14px;}
-	#container #content #content-inner {background:url(/wp-content/themes/slorebuzz/images/content_bg.png) repeat-y top center;padding:0px 18px 0px;overflow:hidden;}
-	#container #content #content-footer {background:url(/wp-content/themes/slorebuzz/images/content_bottom.png) no-repeat top center;height:19px;}
+	#container #content {background:url(images/content_top.png) no-repeat top center;padding-top:14px;}
+	#container #content #content-inner {background:url(images/content_bg.png) repeat-y top center;padding:0px 18px 0px;overflow:hidden;}
+	#container #content #content-footer {background:url(images/content_bottom.png) no-repeat top center;height:19px;}
 	
 	#container #content .entry-title {font-size:20px;margin-bottom:10px;}
 	
@@ -117,13 +117,13 @@ td {padding:5px;}
 	
 	#sidebar #twitter-widget {background:#FFF;border: 1px solid #7E7E7E;border-bottom:3px solid #7E7E7E;height: 26px;padding: 10px 20px;position:relative;margin-bottom:9px;}
 	
-	#sidebar #search-box {background:url(/wp-content/themes/slorebuzz/images/sb_top.png) no-repeat top center;padding-top:12px;margin-bottom:7px;}
-	#sidebar #search-box label.screen-reader-text {float:left;width:80px;height:27px;display:block;background:url(/wp-content/themes/slorebuzz/images/search_label.jpg) no-repeat top center;text-indent:-9999px;}
-	#sidebar #search-box form {background:url(/wp-content/themes/slorebuzz/images/sb_bg.png) repeat-y top center;padding:10px 4px; }
-	#sidebar .sb-footer {background:url(/wp-content/themes/slorebuzz/images/sb_bottom.png) no-repeat top center;height:12px;}
+	#sidebar #search-box {background:url(images/sb_top.png) no-repeat top center;padding-top:12px;margin-bottom:7px;}
+	#sidebar #search-box label.screen-reader-text {float:left;width:80px;height:27px;display:block;background:url(images/search_label.jpg) no-repeat top center;text-indent:-9999px;}
+	#sidebar #search-box form {background:url(images/sb_bg.png) repeat-y top center;padding:10px 4px; }
+	#sidebar .sb-footer {background:url(images/sb_bottom.png) no-repeat top center;height:12px;}
 	
-	#sidebar #sidebar-main {background:url(/wp-content/themes/slorebuzz/images/sb_top.png) no-repeat top center;padding-top:12px;margin-bottom:7px;}
-	#sidebar #sidebar-main .sibebar-content {background:url(/wp-content/themes/slorebuzz/images/sb_bg.png) repeat-y top center;padding:10px 4px;}
+	#sidebar #sidebar-main {background:url(images/sb_top.png) no-repeat top center;padding-top:12px;margin-bottom:7px;}
+	#sidebar #sidebar-main .sibebar-content {background:url(images/sb_bg.png) repeat-y top center;padding:10px 4px;}
 
 #footer {position:absolute;bottom:0;background:#002738;color:#FFF;width:100%;}
 	#footer a {color:#FFF;}
