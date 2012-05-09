@@ -183,32 +183,48 @@ class ResidentialModel extends MySQLRepository {
     * @param integer  max. price of listing, 0 for don't care
     * @param string   name of the city to filter for, or null
     **/
-   public function HomeSearch($bed, $bath, $cost, $city) {
+   public function HomeSearch($searchParams) {
       $qry = "SELECT *
                 FROM {$this->tblName}
                WHERE ";
       $params = array();
       $filters = array();
 
-      if ($bed > 0) {
-         $filters[] = " num_bedrooms >= ?";
-         $params[] = $bed;
-      }
+      foreach ($searchParams as $name => $val) {
+         if (empty($val) || $val === 0)
+            continue;
 
-      if ($bath > 0) {
-         $filters[] = " num_bathrooms >= ?";
-         $params[] = $bath;
-      }
-
-      if ($cost > 0) {
-         $filters[] = " listing_price BETWEEN ? AND ?";
-         $params[] = $cost - 50000;
-         $params[] = $cost + 10000;
-      }
-
-      if ($city !== null && $city != '') {
-         $filters[] = " city = ?";
-         $params[] = $city;
+         switch ($name) {
+         case 'bed':
+            $filters[] = " num_bedrooms >= ?";
+            $params[] = $val;
+            break;
+         case 'bath':
+            $filters[] = " num_bathrooms >= ?";
+            $params[] = $val;
+            break;
+         case 'price':
+            $filters[] = " listing_price BETWEEN ? AND ?";
+            $params[] = $val - ($val * .1);
+            $params[] = $val + ($val * .1);
+            break;
+         case 'price_min':
+            $filters[] = " listing_price >= ?";
+            $params[] = $val;
+            break;
+         case 'price_max':
+            $filters[] = " listing_price <= ?";
+            $params[] = $val;
+            break;
+         case 'city':
+            $filters[] = " city = ?";
+            $params[] = $val;
+            break;
+         case 'zip':
+            $filters[] = " zip = ?";
+            $params[] = $val;
+            break;
+         }
       }
 
       // won't do query for everything - must filter
