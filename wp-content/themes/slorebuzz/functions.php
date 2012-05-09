@@ -55,9 +55,10 @@ if ( function_exists('register_sidebar') )
 /**
  * Query our MLS listings for given attributes.
  *
- * @param array   An associative array, passed in from a shortcode, which main
- *                contain any of the following. Any not present will given
- *                reasonable defaults. At least one must be present.
+ * @param array   An associative array, passed in from a shortcode, which may
+ *                contain any of the following. Any not present will be
+ *                ignored.
+ *                At least one must be present.
  *
  *                'bed' - min # of bedrooms in the listing
  *                'bath' - min # of bathrooms

@@ -178,10 +178,22 @@ class ResidentialModel extends MySQLRepository {
     * Do a basic search for listings based on number of bedrooms, bathrooms,
     * and/or price of the listing.
     *
-    * @param integer  min. # of bedrooms, 0 for don't care
-    * @param integer  min. # of bathrooms, 0 for don't care
-    * @param integer  max. price of listing, 0 for don't care
-    * @param string   name of the city to filter for, or null
+    * @param array   An associative array which may contain any of the
+    *                following. Any not present, empty, or set to 0 will be
+    *                ignored.
+    *
+    *                'bed' - min # of bedrooms in the listing
+    *                'bath' - min # of bathrooms
+    *                'sq_ft' - min # of square feet
+    *
+    *                'price' - approximate price of the listing, +/- 10%
+    *                'price_min' - minimum price
+    *                'price_max' - maximum price
+    *
+    *                'city' - city it appears in
+    *                'zip' - zip it resides in
+    *
+    * @return array  Results from the query.
     **/
    public function HomeSearch($searchParams) {
       $qry = "SELECT *
