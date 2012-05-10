@@ -1,5 +1,4 @@
 <?php
-
 class MLSParser {
    public $db;
 
@@ -61,194 +60,88 @@ class MLSParser {
    }
 }
 
-class ResidentialModel extends MySQLRepository {
-   public $cols;
-
-   public function __construct() {
-      parent::__construct();
-
-      $this->dbName = 'fam_re_buzz';
-      $this->tblName = 'mls_listings';
-      $this->pk = 'id';
-
-      $this->cols = array('ml_id' => 0,
-         'possession' => 90,
-         'acres' => 1,
-         'sq_footage' => 3,
-         'listing_price' => 8,
-
-         'num_bedrooms' => 102,
-         'num_bathrooms' => 2,
-         'rooms' => 40,
-         'full_bath' => 4,
-         'half_bath' => 5,
-         'qtr_bath' => 6,
-         'garage_spaces' => 11,
-         'pets' => 101,
-
-         'prop_subtype' => 103,
-         'story_type_lvl' => 66,
-         'zone_description' => 18,
-         'year_built' => 30,
-         'pictures_count' => 125,
-         'virtual_tour_url' => 115,
-
-         'show_addr_to_public' => 114,
-         'street_num' => 20,
-         'street_num_modifier' => 21,
-         'street_direction' => 22,
-         'street_name' => 23,
-         'steet_suffix' => 24,
-         'unit' => 25,
-         'city' => 26,
-         'state' => 27,
-         'zip' => 28,
-         'zip_4' => 29,
-         'county' => 120,
-
-         'hoa' => 45,
-         'hoa_fee' => 48,
-         'hoa_fee_paid' => 54,
-
-         'office_id' => 107,
-         'office_name' => 106,
-         'listing_office_phone' => 33,
-         'agent_id' => 57,
-         'agent_full_name' => 58,
-         'agent_name' => 121,
-         'agent_number' => 123,
-         'agent_phone' => 124,
-         'agent_phone_type' => 122,
-
-         'marketing_remarks' => 9,
-         'appliances_incld' => 34,
-         'entry_date' => 92);
-   }
+/**
+ * Parse natural-language queries.
+ **/
+class MLSLangQueryParser {
 
    /**
-    * Map an array of CSV MLS data to an associative array, suitable for
-    * inserting to our database.
-    *
-    * @param array   A numerically indexed array of one row from the MLS CSV.
-    * @return array  An associative array of data for this data model.
+    * Parse a human-created query for listings to a data structure
+    * suitable for passing to any of our models.
     **/
-   public function mapCSVtoDB($csvData) {
-      $data = array();
+   public function ParseSearch($searchStr) {
+      $params = $matches = array();
+      $searchStr = str_replace(',', '', $searchStr);
 
-      foreach ($this->cols as $name => $ndx) {
-         if ($ndx !== null)
-            $data[$name] = $csvData[$ndx];
+      // bedrooms
+      $res = preg_match('/([\d]+)\s?(?:br|bed)/i', $searchStr, $matches);
+
+      if ($res) {
+         $params['bed'] = $matches[1];
+         $searchStr = str_replace($matches[0], '', $searchStr);
+      }
+
+      // bathrooms
+      $res = preg_match('/([\d]+)\s?(?:ba[\w]?)/i', $searchStr, $matches);
+
+      if ($res) {
+         $params['bath'] = $matches[1];
+         $searchStr = str_replace($matches[0], '', $searchStr);
+      }
+
+      // sq. footage
+      $res = preg_match('/([\d]+)\s?(?:sq[\w]?|sf)/i', $searchStr, $matches);
+
+      if ($res) {
+         $params['sq_ft'] = $matches[1];
+         $searchStr = str_replace($matches[0], '', $searchStr);
+      }
+
+      //price min and mx
+      $res = preg_match('/\$([\d]+)k?\s?-\s?\$?([\d]+)(k?)/i', $searchStr, $matches);
+
+      if ($res) {
+         if ($matches[3] == 'k')
+            $mult = 1000;
          else
-            $data[$name] = null;
+            $mult = 1;
+
+         $params['price_min'] = $matches[1] * $mult;
+         $params['price_max'] = $matches[2] * $mult;
+
+         $searchStr = str_replace($matches[0], '', $searchStr);
       }
 
-      $this->CleanDBData($data);
+      //price
+      $res = preg_match('/\$([\d]+)(k?)(?:\s|$)/i', $searchStr, $matches);
 
-      return $data;
-   }
+      if ($res) {
+         if ($matches[2] == 'k')
+            $mult = 1000;
+         else
+            $mult = 1;
 
-   public function CleanDBData(&$data) {
-      $data['entry_date'] = date('Y-m-d', strtotime($data['entry_date']));
-      $data['last_update'] = date('Y-m-d H:i:s');
+         $params['price'] = $matches[1] * $mult;
 
-      if ($data['show_addr_to_public'] == 1)
-         $data['show_addr_to_public'] = 'Y';
-      else
-         $data['show_addr_to_public'] = 'N';
-
-      if (strlen($data['zip']) > 5)
-         $data['zip'] = substr($data['zip'], 0, 5);
-
-      if ($data['zip_4'] < 0)
-         $data['zip_4'] = null;
-
-      $data['mls_listings_id'] = $this->idFromMLSid($data['ml_id']);
-   }
-
-   public function idFromMLSid($mlsID) {
-      $qry = "SELECT id
-                FROM {$this->tblName}
-               WHERE ml_id = ?";
-
-      $params = array($mlsID);
-      return $this->_fetchOne($qry, $params);
-   }
-
-   /**
-    * Do a basic search for listings based on number of bedrooms, bathrooms,
-    * and/or price of the listing.
-    *
-    * @param array   An associative array which may contain any of the
-    *                following. Any not present, empty, or set to 0 will be
-    *                ignored.
-    *
-    *                'bed' - min # of bedrooms in the listing
-    *                'bath' - min # of bathrooms
-    *                'sq_ft' - min # of square feet
-    *
-    *                'price' - approximate price of the listing, +/- 10%
-    *                'price_min' - minimum price
-    *                'price_max' - maximum price
-    *
-    *                'city' - city it appears in
-    *                'zip' - zip it resides in
-    *
-    * @return array  Results from the query.
-    **/
-   public function HomeSearch($searchParams) {
-      $qry = "SELECT *
-                FROM {$this->tblName}
-               WHERE ";
-      $params = array();
-      $filters = array();
-
-      foreach ($searchParams as $name => $val) {
-         if (empty($val) || $val === 0)
-            continue;
-
-         switch ($name) {
-         case 'bed':
-            $filters[] = " num_bedrooms >= ?";
-            $params[] = $val;
-            break;
-         case 'bath':
-            $filters[] = " num_bathrooms >= ?";
-            $params[] = $val;
-            break;
-         case 'price':
-            $filters[] = " listing_price BETWEEN ? AND ?";
-            $params[] = $val - ($val * .1);
-            $params[] = $val + ($val * .1);
-            break;
-         case 'price_min':
-            $filters[] = " listing_price >= ?";
-            $params[] = $val;
-            break;
-         case 'price_max':
-            $filters[] = " listing_price <= ?";
-            $params[] = $val;
-            break;
-         case 'city':
-            $filters[] = " city = ?";
-            $params[] = $val;
-            break;
-         case 'zip':
-            $filters[] = " zip = ?";
-            $params[] = $val;
-            break;
-         }
+         $searchStr = str_replace($matches[0], '', $searchStr);
       }
 
-      // won't do query for everything - must filter
-      if (count($filters) == 0)
-         return array();
+      // zip
+      $res = preg_match('/(?:in )?([\d]{5})(?: |$)/i', $searchStr, $matches);
 
-      $qry .= implode(' AND ', $filters);
+      if ($res) {
+         $params['zip'] = $matches[1];
+         $searchStr = str_replace($matches[0], '', $searchStr);
+      }
 
-      $qry .= " ORDER BY listing_price";
+      // city
+      $res = preg_match('/in (\D+?)(?: on |$)/i', $searchStr, $matches);
 
-      $res = $this->_fetchAll($qry, $params);
+      if ($res) {
+         $params['city'] = $matches[1];
+         $searchStr = str_replace($matches[0], '', $searchStr);
+      }
 
-      return $res;
+      return $params;
    }
 }
