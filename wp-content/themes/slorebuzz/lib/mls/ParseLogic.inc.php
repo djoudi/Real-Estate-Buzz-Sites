@@ -12,6 +12,13 @@ class MLSParser {
    }
 
    public function parseCSV($fileName) {
+
+      $filePortion = basename($fileName, '.csv');
+      if (substr($filePortion, 0, 4) != 'RESI') {
+         echo "not a residential listing - skipping\n";
+         return;
+      }
+
       echo "\nopening " . realpath($fileName);
       $fHandle = fopen($fileName, 'r');
 
