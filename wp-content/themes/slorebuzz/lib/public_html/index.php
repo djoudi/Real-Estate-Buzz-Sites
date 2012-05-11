@@ -2,7 +2,7 @@
 
 <h2 class="post-entry-title single-title" style="margin: .5em 0;">Search MLS Listings</h2>
 <form style="margin: 1em auto; text-align: center;" method="get" action="index.php">
-   <input type="search" size="60" max-length="200" name="s" value="<?php if (array_key_exists('s', $_GET)) echo htmlentities($_GET['s']); ?>" /><br />
+   <input type="search" size="60" max-length="200" name="s" value="<?php if (array_key_exists('s', $_GET)) echo htmlentities($_GET['s']); ?>" placeholder="describe the home you're looking for"/><br />
    <p style="color: #888;"><span style="font-size: 90%;">example:</span> 4 BR 2 bath 1000 sqFt, $300-$450k in San Luis Obispo</p>
    <button type="submit">Search for Homes</button>
 </form>
