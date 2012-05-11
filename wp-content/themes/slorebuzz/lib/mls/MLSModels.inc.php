@@ -1,8 +1,11 @@
 <?php
-require_once('../settings/db_logins.inc.php');
-require_once('../db/DBFactory.inc.php');
-require_once('../db/DBRepository.inc.php');
-require_once('../db/QueryBuilder.inc.php');
+$inc_base = __DIR__ . '/';
+require_once($inc_base . '../settings/db_logins.inc.php');
+require_once($inc_base . '../db/DBFactory.inc.php');
+require_once($inc_base . '../db/DBRepository.inc.php');
+require_once($inc_base . '../db/QueryBuilder.inc.php');
+
+require_once($inc_base . 'ParseLogic.inc.php');
 
 class ResidentialModel extends MySQLRepository {
    public $cols;
@@ -158,6 +161,10 @@ class ResidentialModel extends MySQLRepository {
             $filters[] = " num_bathrooms >= ?";
             $params[] = $val;
             break;
+         case 'sq_ft':
+            $filters[] = " sq_footage >= ?";
+            $params[] = $val;
+            break;
          case 'price':
             $filters[] = " listing_price BETWEEN ? AND ?";
             $params[] = $val - ($val * .1);
@@ -208,5 +215,10 @@ class ResidentialModel extends MySQLRepository {
     * @see Search()
     **/
    public function EasySearch($searchStr) {
+      $parser = new MLSLangQueryParser();
+
+      $searchTerms = $parser->ParseSearch($searchStr);
+
+      return $this->HomeSearch($searchTerms);
    }
 }
